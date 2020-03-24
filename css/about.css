@@ -1,0 +1,30 @@
+.art{
+    margin: auto ;
+    margin-top: 80px;
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    overflow: hidden;
+} 
+.photoart{
+    float: left;
+    width: 12%;
+}
+.topart{
+    float: left;
+    width: 88%;
+}
+.topart p{
+    text-indent: 0;
+}
+.hphoto{
+  
+    border-radius: 100px;
+    width: 110px;
+}
+.art{
+  
+}
+.inart{
+    margin-top: 180px;
+}
