@@ -25,6 +25,7 @@ p{
 }
 /* 导航条 */
 .headra{
+    border-top: 3px solid seagreen;
     float: left;
     width: 100%;
     overflow: hidden;
