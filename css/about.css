@@ -28,8 +28,13 @@
 .inart{
     margin-top: 180px;
 }
-@media screen and (max-width:800px){
-    .photoart .topart{
+@media screen and (max-width: 850px)
+{
+    .photoart{
+        width: 100%;
+    }
+    .topart{
+        margin-top: 20px;
         width: 100%;
     }
 }
