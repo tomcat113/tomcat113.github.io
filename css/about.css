@@ -7,12 +7,14 @@
     overflow: hidden;
 } 
 .photoart{
+   
     float: left;
+    text-align: right;
     width: 12%;
 }
 .topart{
-    float: left;
-    width: 88%;
+    float: right;
+    width: 78%;
 }
 .topart p{
     text-indent: 0;
@@ -22,15 +24,14 @@
     border-radius: 100px;
     width: 110px;
 }
-.art{
-  
-}
+
 .inart{
     margin-top: 180px;
 }
 @media screen and (max-width: 850px)
 {
     .photoart{
+        text-align: center;
         width: 100%;
     }
     .topart{
