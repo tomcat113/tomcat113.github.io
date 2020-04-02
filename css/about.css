@@ -1,41 +1,50 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .art{
-    margin: auto ;
-    margin-top: 80px;
+    position: relative;
+    display: flex;
+    padding: 10px;
     background-color: white;
-    padding: 20px;
-    width: 80%;
+
     overflow: hidden;
-} 
+    flex-direction: column;
+    align-items: center;
+}
+.art::before{
+    content: "";
+    border: solid 1px #cccccc;
+}
 .photoart{
-   
-    float: left;
-    text-align: right;
-    width: 12%;
+    flex: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
 }
 .topart{
-    float: right;
-    width: 78%;
+    flex: 1;
 }
-.topart p{
-    text-indent: 0;
-}
+
 .hphoto{
-  
-    border-radius: 100px;
+    flex: 1;
     width: 110px;
+    border-radius: 50%;
 }
 
 .inart{
-    margin-top: 180px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.inart>p{
+    flex: 1;
 }
 @media screen and (max-width: 850px)
 {
-    .photoart{
-        text-align: center;
-        width: 100%;
-    }
-    .topart{
-        margin-top: 20px;
-        width: 100%;
-    }
+   
+    
 }
