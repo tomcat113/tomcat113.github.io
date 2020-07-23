@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.min.js"></script>
+</head>
+<style>
+    img {
+        width: 20px;
+    }
+
+    body {
+        height: 800px;
+    }
+
+    .active1 {
+        border: 1px solid red;
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+    }
+
+    #div6 * {
+        margin: 0;
+        padding: 0;
+
+    }
+
+    #app {
+        margin: 50px auto;
+    }
+
+    .vertical-tab {
+        width: 920px;
+        margin: 100px auto !important;
+    }
+
+    .vertical-tab .nav {
+        list-style: none;
+        width: 200px;
+    }
+
+    .vertical-tab .nav-tabs1 {
+        border-right: 3px solid #e7e7e7;
+    }
+
+    .vertical-tab .nav-tabs2 {
+        border-left: 3px solid #e7e7e7;
+    }
+
+    .vertical-tab .nav a {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 10px 20px !important;
+        margin: 0 0 1px 0 !important;
+        text-decoration: none;
+    }
+
+    .vertical-tab .tab-content {
+        color: #555 !important;
+        background-color: #fff;
+        font-size: 15px;
+        letter-spacing: 1px;
+        line-height: 23px;
+        padding: 10px 15px 10px 25px !important;
+        display: table-cell;
+        position: relative;
+    }
+
+    .vertical-tab .nav-tabs1 {
+        float: left;
+    }
+
+    .vertical-tab .tabs {
+        width: 500px;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .vertical-tab .tab-content h3 {
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 0 0 5px 0 !important;
+    }
+
+    .vertical-tab .nav-tabs2 {
+        float: right;
+    }
+
+    .tab-content .tab-pane {
+        display: none;
+    }
+    a{
+        color: black;
+    }
+    .active  a{
+        color: #198df8!important;
+    }
+
+    .tab-content .tab-pane.active {
+        display: block;
+    }
+</style>
+
+<body>
+    <div id="div1"">
+        <form action=" #">
+        <div>用户名：<input type="text" v-on:keyup.delete="getClear" v-model="uname" placeholder="请输入用户名"></div>
+        <div>密 码：<input type="password" v-on:keyup.enter="getData($event)" v-model="upass" placeholder="请输入密码"></div>
+        <input type="button" value="查询" v-on:click='getData'>
+        </form>
+    </div>
+    <div id="div2">
+        <form action="#">
+            <div>
+                <input type="text" v-model="numA">
+            </div>
+            <div>
+                <input type="text" v-model="numB">
+            </div>
+            <div>
+                <input type="button" value="机算" v-on:click='getData'>
+                <p v-text="numAll"></p>
+            </div>
+        </form>
+    </div>
+    <div id="div3">
+        <a v-bind:href="url">超链接</a>
+        <button v-on:click="handle1">接到a站</button>
+        <div>
+            <span>{{mas}}</span>
+        </div>
+        <div>
+            <input type="text" v-bind:value="mas" v-on:input="handle2"></input>
+            <input type="text" v-model="mas"></input>
+            <input type="text" v-bind:value="mas" v-on:input="mas=$event.target.value"></input>
+        </div>
+    </div>
+    <div id="div4">
+        <div>{{mas}}</div>
+        <div v-bind:class="{active1:isActive}">
+            asdasd
+        </div>
+        <button v-on:click="handle">切换</button>
+    </div>
+    <div id="div5">
+        <li v-for="(item, index) in arr1">{{item+'---'+index}}</li>
+        <div v-for="item in arr2">
+            <span>{{item.aname}}</span>
+            <span>--------------</span>
+            <span>{{item.cname}}</span>
+        </div>
+
+    </div>
+    <div id="div6">
+        <div id="app" class="vertical-tab">
+            <!-- 左侧tab栏 -->
+            <ul class="nav nav-tabs1">
+                <li v-on:click="handle(index,0)" v-if="index<list.length/2" v-for="(item,index) in list" :key="item.id"
+                    :class='getLI==index?"active":""'><a href="javaScript:;"> {{item.title}} </a></li>
+
+            </ul>
+            <!-- 内容区域 -->
+            <div class="tab-content tabs">
+                <div v-for="(item, index) in list" :key="item.id" class="tab-pane  fade"
+                    :class='getLI==index?"active":""'>
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.content}}</p>
+                </div>
+            </div>
+            <ul class="nav nav-tabs2">
+                <!-- 右侧tab栏 -->
+                <li v-on:click="handle(index)" v-if="index>=list.length/2" :class='getLI==index?"active":""'
+                    v-for="(item, index) in list" :key="item.id"><a href="javaScript:;"> {{item.title}} </a>
+                    </list.length>
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        var vm1 = new Vue({
+            el: '#div1',
+            data: {
+                uname: '',
+                upass: ''
+            },
+            methods: {
+                getData: function (event) {
+                    if (this.uname && this.upass) {
+                        console.log('用户名：' + this.uname, '密  码：' + this.upass);
+                        console.log(event.keyCode);
+                    } else {
+                        alert('请输入用户名或密码')
+
+                    }
+                },
+                getClear: function () {
+                    this.uname = '';
+                    this.upass = '';
+                }
+            }
+        })
+        var vm2 = new Vue({
+            el: '#div2',
+            data: {
+                numA: '',
+                numB: '',
+                numAll: ''
+            },
+            methods: {
+                getData: function () {
+                    this.numAll = parseInt(this.numA) + parseInt(this.numB);
+                }
+            }
+        })
+        var vm3 = new Vue({
+            el: '#div3',
+            data: {
+                mas: 'hello',
+                url: 'http://www.baidu.com'
+            },
+            methods: {
+                handle1: function () {
+                    this.url = 'https://www.acfun.cn/';
+                },
+                handle2: function (e) {
+                    this.mas = e.target.value;
+                }
+            }
+        })
+        var vm4 = new Vue({
+            el: '#div4',
+            data: {
+                mas: 'asd',
+                isActive: true
+            },
+            methods: {
+                handle: function () {
+                    this.isActive = !this.isActive;
+
+                }
+            }
+        })
+        var vm5 = new Vue({
+            el: '#div5',
+            data: {
+                arr1: ['苹果', '香蕉', '橘子', '芒果', '草莓'],
+                arr2: [{ aname: '苹果', cname: 'apple' }, { aname: '橘子', cname: 'orange' }, { aname: '香蕉', cname: 'banana' }]
+            },
+            methods: {
+
+            }
+        })
+        var vm6 = new Vue({
+
+            el: '#div6',
+            data: {
+                getLI: 0,
+                list: [{
+                    id: 1,
+                    title: 'Section 1',
+                    content: 'content1'
+                }, {
+                    id: 2,
+                    title: 'Section 2',
+                    content: 'content2'
+                }, {
+                    id: 3,
+                    title: 'Section 3',
+                    content: 'content3'
+                }, {
+                    id: 4,
+                    title: 'Section 4',
+                    content: 'content4'
+                }, {
+                    id: 5,
+                    title: 'Section 5',
+                    content: 'content5'
+                }, {
+                    id: 6,
+                    title: 'Section 6',
+                    content: 'content6'
+                }]
+
+            },
+            methods: {
+                handle: function (index) {
+                    this.getLI = index;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

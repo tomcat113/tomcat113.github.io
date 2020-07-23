@@ -1,132 +1,106 @@
-/* 清除元素默认的内外边距 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* 
+通用样式 
+*/
 
-/* body样式 */
 body {
-    color: #24292e;
+    font: 15px 'Microsoft YaHei', Helvetica, sans-serif;
+    color: #333;
+    /* height: 1900px; */
+    background-color: #f6f6f6;
+}
+
+/* 导航栏 */
+.navbar-default {
     background-color: #fff;
-    font: 14px/1.5 'Microsoft YaHei', 'Heiti SC', tahoma, arial, 'Hiragino Sans GB', \\5B8B\4F53, sans-serif;
-}
-
-/* 字体 */
-em,
-i {
-    /* 让斜体不倾斜 */
-    font-style: normal;
-}
-
-/* 列表 */
-li {
-    /* 去掉前面的小点 */
-    list-style: none;
-}
-
-/* 链接 */
-a {
-    /*默认颜色*/
-    color: #24292e;
-    /* 删除默认的下划线 */
-    text-decoration: none;
-}
-
-/* 图片  */
-img {
-    /* 去点图片底侧的空白缝隙与边框 */
     border: 0;
-    /* 位置居中 */
-    vertical-align: middle;
-    /* 图片与元素的大小一致 */
-    width: 100%;
-    height: 100%;
+    box-shadow: 0 2px 8px 0 rgba(50, 50, 50, .25);
 }
 
-/* 按钮 */
-button {
-    /* 让鼠标变成小手 */
-    cursor: pointer;
+.navbar-default .navbar-brand {
+    font-size: 25px;
+    height: 70px;
+    line-height: 35px;
 }
 
-/* button与input的蓝色的轮框线 */
-button,
-input {
-    outline: none;
-}
-/* div默认为块元素 */
-div{
-    display: block;
+.navbar-default .navbar-brand:hover {
+    color: #008c6c;
 }
 
-/* 隐藏元素 */
-.hide,
-.none {
-    display: none;
+.navbar-default .navbar-nav>li>a {
+    font-size: 16px;
+    height: 70px;
+    font-weight: bold;
+    line-height: 35px;
 }
 
-/*清除浮动*/
-.clearfix:after {
-    visibility: hidden;
-    clear: both;
-    display: block;
-    content: ".";
-    height: 0
-}
-
-.clearfix {
-    /* IE6 */
-    *zoom: 1
-}
-/* 字体大小16px */
-.h4 {
-    font-size: 16px !important;
-}
-/* flex布局 */
-.d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important;
-}
-/* 左内边距 */
-.pl-3,
-.px-3 {
-    padding-left: 16px !important;
-}
-/* 上外边距 */
-.mt-1 {
-    margin-top: 4px !important;
-}
-/* 不换行且图片覆盖文本 */
-.site-branding-title {
-    white-space: nowrap;
-    z-index: 1 !important;
-}
-/* 字体格式 */
-.alt-mono-font {
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
-}
-.flex-items-center{
-    align-items: center !important;
-}
-.flex-justify-end{
-    -ms-flex-pack: end !important;
-    justify-content: flex-end !important;
-}
-.flex-self-center{
-    -ms-flex-item-align: center !important;
-    -ms-grid-row-align: center !important;
-    align-self: center !important;
-}
-.flex-shrink-0{
-    flex-shrink: 0 !important;
-}
-.aafter::after{
+.li-active::after {
     content: '';
-    border-top: 4px solid #959da5;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    height: 0;
-    margin-left: 4px;
-    width: 0;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #008c6c;
+}
+
+.li-active {
+    position: relative;
+    color: #008c6c !important;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #008c6c;
+}
+
+.navbar-default .navbar-toggle:hover {
+    border-color: #008c6c;
+    background-color: #008c6c;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #008c6c;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-toggle {
+    margin-top: 17px;
+}
+
+.navbar-nav .navbar-btn {
+    background-color: rgb(69, 210, 184);
+    margin: 0;
+}
+#li-section-lb{
+    margin-bottom: 25px;
+}
+/* 导航栏 end*/
+/* 尾部 */
+
+/* 尾部 end */
+#li-footer {
+    color: #e0e0e0;
+    background-color: #282828;
+}
+
+#li-footer .col-md-12 {
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    color: #e0e0e0;
+    padding: 50px 15px;
+
+}
+
+.footer-card {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+}
+
+.footer-card a {
+    color: #e0e0e0;
+    padding: 0 10px;
 }
