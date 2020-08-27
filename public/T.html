@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo1">
+        <button>更新</button>
+        <p>数据更新中....</p>
+    </div>
+
+    <style>
+
+    </style>
+    <script>
+        const p = document.querySelector('p');
+        const button = document.querySelector('button');
+        // const url = 'https://www.juhe.cn/docs/api/id/19';
+        const url = 'https://api.github.com/search/repositories?q=vu';
+        // const axios = require('axios');
+        // import axios from 'axios'
+
+        // Make a request for a user with a given ID
+        button.addEventListener('click', function () {
+            console.log('123');
+            axios.get(url)
+                .then(function (response) {
+                    // handle success
+                    p.innerText = response.data.items[0].name+'唯一的神';
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .then(function () {
+                    // always executed
+                });
+        })
+        // button.click()= function () {
+        //         console.log('123');
+
+            // }
+    </script>
+
+</body>
+
+</html>
